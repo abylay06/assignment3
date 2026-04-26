@@ -42,7 +42,7 @@ Analysis questions:
    larger than O(n) of linear search, so linear search will be more efficient. However, in the long-term, if we need to search from that sequence many times,
    then sorting once and then using binary search many times will be more time efficient compared to just using linear search many times. This is because
    kn > nlogn + klogn = (k+n)logn for large k. After around logn times of searching, therefore merge + k * binary search is better than k * linear search as each new search adds only logn new steps not n.
-6) Binar search requires a sorted array because after selecting the middle of the sequence, it compares the target to the middle and it needs to know exactly whether the target is in the left or the right half, and if the sequence is not sorted it cannot be guaranteed that the target is in one of the halves, therefore
+6) Binary search requires a sorted array because after selecting the middle of the sequence, it compares the target to the middle and it needs to know exactly whether the target is in the left or the right half, and if the sequence is not sorted it cannot be guaranteed that the target is in one of the halves, therefore
 binary search won't work. However, if the sequence is sorted, then if target > array mid, then we can start searching the right half because we know that target is bigger than array mid therefore it is in the right half.
 
 
