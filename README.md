@@ -25,7 +25,25 @@ Table for execution of searching algorithms:
 
 Analysis questions:
 
-
+1) For sorted sequences, insertion sort performed faster consistently compared to the merge sort because insertion sort has the time complexity of
+   O(n) for sorted seuqences, so this was expected, and for random sequences, as expected merge sort was faster as it has O(nlogn) which is smaller
+   than O(n^2)
+2) With input size increasing, time it took also increased, for linear search performance was steady and increasing linearly with input size as expected,
+   and for merge sort it also increased predictably, but insertion sort had much faster reduction in performance in random sequences compared to sorted
+   sequences when input size increasd. This was also expected because random for insertion sort is O(n^2) and sorted is O(n).
+3) Sorted vs unsorted doesn't affect performance for merge sort and linear search becuase linear search simply searches for element and merge sort
+   always takes the same steps, but insertion sort is faster for sorted sequences because every insertion only has to compare to the largest element, so
+   achieving O(n) as opposeed to O(n^2) for random sequences.
+4) Yes, they do as random for insertion sort increased much faster in time as expected from O(n^2). Linears search and insertion sort for sorted sequences
+   increasd at a stable linear rate as input incrased becasue of O(n) time complexity. Merge sort for both random and sorted sequences increased at a faster
+   rate than O(n) (insertion sort with sorted sequences) but slower than O(n^2) (insertion sort with random seuqences) which was also expected.
+5) Altough I didn't implement binary search, I can say that binbary search achieves O(logn) for sorted sequences so there it will be more efficient than
+   linear search which has time complexity of O(n). But if we have to first sort the unordred list, then O(nlogn) for sorting + O(logn) for binary search is
+   larger than O(n) of linear search, so linear search will be more efficient. However, in the long-term, if we need to search from that sequence many times,
+   then sorting once and then using binary search many times will be more time efficient compared to just using linear search many times. This is because
+   kn > nlogn + klogn = (k+n)logn for large k. After around logn times of searching, therefore merge + k * binary search is better than k * linear search as each new search adds only logn new steps not n.
+6) Binar search requires a sorted array because after selecting the middle of the sequence, it compares the target to the middle and it needs to know exactly whether the target is in the left or the right half, and if the sequence is not sorted it cannot be guaranteed that the target is in one of the halves, therefore
+binary search won't work. However, if the sequence is sorted, then if target > array mid, then we can start searching the right half because we know that target is bigger than array mid therefore it is in the right half.
 
 
 Screenshots:
@@ -47,5 +65,6 @@ Reflections section:
 2) Also, for merge sort it took longer than insertion sort even for random lists when I made the temp array the size of the actual array, so I had to
    change the size of temp array to only the part that I am merging and made it size of start+end-1 not size of x.length and it led to better performance
    than insertion sort for random sequences.
+3) In practice times where not exactly like the time complexity algorithms. They increased faster or slower maybe depending on memory allocation or cpu performance fluctuationo.
 
 
